@@ -12,7 +12,7 @@ def get_long_description():
 
 
 setup(
-    name='flake8-strings',
+    name='cpplint-junit',
     version=cpplint_junit.__version__,
 
     description='Converts cpplint output to JUnit format.',
@@ -24,7 +24,7 @@ setup(
     url='https://github.com/johnthagen/cpplint-junit',
     license='MIT',
 
-    py_modules=['cpplint-junit'],
+    py_modules=['cpplint_junit'],
     zip_safe=False,
 
     classifiers=[
@@ -44,5 +44,5 @@ setup(
         'Topic :: Software Development :: Quality Assurance',
     ],
 
-    scripts=['cpplint-junit']
+    scripts=['cpplint_junit.py']
 )
