@@ -4,11 +4,9 @@ import cpplint_junit
 
 
 def get_long_description():
-    description = []
-    for file_name in ('README.rst',):
-        with open(file_name) as f:
-            description.append(f.read())
-    return '\n\n'.join(description)
+    with open('README.rst') as file:
+        description = file.read()
+    return description
 
 
 setup(
