@@ -67,7 +67,7 @@ class ParseCpplintTestCase(unittest.TestCase):
     def test_all(self):
         file1 = 'bad.cpp'
         file2 = 'bad2.cpp'
-        failures = parse_cpplint('tests/cpplint-out-alltxt')
+        failures = parse_cpplint('tests/cpplint-out-all.txt')
 
         self.assertEqual(failures[file1][0].file, file1)
         self.assertEqual(failures[file1][0].line, 0)
