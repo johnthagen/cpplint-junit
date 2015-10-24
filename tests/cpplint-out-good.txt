@@ -1,0 +1,2 @@
+Done processing main_good.cpp
+Total errors found: 0

@@ -1,0 +1,5 @@
+bad.cpp:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
+bad.cpp:2:  Missing spaces around =  [whitespace/operators] [4]
+bad.cpp:3:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing bad.cpp
+Total errors found: 3
