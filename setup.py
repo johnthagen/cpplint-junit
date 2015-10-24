@@ -42,5 +42,11 @@ setup(
         'Topic :: Software Development :: Quality Assurance',
     ],
 
-    scripts=['cpplint_junit.py']
+    scripts=['cpplint_junit.py'],
+
+    entry_points={
+        'console_scripts': [
+            'cpplint_junit = cpplint_junit:main',
+        ],
+    }
 )
