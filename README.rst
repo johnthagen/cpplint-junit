@@ -31,3 +31,11 @@ Convert it to JUnit XML format:
 .. code:: shell-session
 
     $ cpplint_junit cpplint.txt cpplint_junit.xml
+
+Releases
+--------
+
+0.1 - 2015-10-24
+^^^^^^^^^^^^^^^^
+
+First release.
