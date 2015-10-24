@@ -3,18 +3,12 @@ from setuptools import setup
 import cpplint_junit
 
 
-def get_long_description():
-    with open('README.rst') as file:
-        description = file.read()
-    return description
-
-
 setup(
     name='cpplint-junit',
     version=cpplint_junit.__version__,
 
     description='Converts cpplint output to JUnit format.',
-    long_description=get_long_description(),
+    long_description=open('README.rst').read(),
     keywords='cpplint C++ Google JUnit',
 
     author='John Hagen',
