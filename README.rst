@@ -10,7 +10,9 @@ helpful feedback.
 Installation
 ------------
 
-You can install, upgrade, and uninstall ``cpplint-junit`` with these commands::
+You can install, upgrade, and uninstall ``cpplint-junit`` with these commands:
+
+.. code:: shell-session
 
     $ pip install cpplint-junit
     $ pip install --upgrade cpplint-junit
