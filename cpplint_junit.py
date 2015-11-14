@@ -9,7 +9,7 @@ import re
 import sys
 from xml.etree import ElementTree
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 EXIT_SUCCESS = 0
 EXIT_FAILURE = -1
@@ -36,14 +36,14 @@ def parse_cpplint(file_name):
         file_name (str): cpplint output file.
 
     Returns:
-        Dict[str, List[CpplintFailure]]: Parsed failures grouped by file name.
+        Dict[str, List[CpplintError]]: Parsed failures grouped by file name.
 
     Raises:
         FileNotFoundError: File does not exist.
     """
     lines = open(file_name, mode='rt').readlines()
 
-    failures = collections.defaultdict(list)
+    errors = collections.defaultdict(list)
     for line in lines:
         line = line.rstrip()
 
@@ -52,34 +52,34 @@ def parse_cpplint(file_name):
             error = CpplintError(file=match.group(1),
                                  line=int(match.group(2)),
                                  message=match.group(3))
-            failures[error.file].append(error)
-    return failures
+            errors[error.file].append(error)
+    return errors
 
 
-def generate_test_suite(failures, output_file):
+def generate_test_suite(errors, output_file):
     """Writes a JUnit test file from parsed cpplint failures.
 
     Args:
-        failures (Dict[str, List[CpplintFailure]]): Parsed cpplint failures.
+        errors (Dict[str, List[CpplintError]]): Parsed cpplint failures.
         output_file (str): File path to JUnit XML output.
 
     Returns:
         Nothing.
     """
     test_suite = ElementTree.Element('testsuite')
-    test_suite.attrib['errors'] = str(len(failures))
+    test_suite.attrib['errors'] = str(len(errors))
     test_suite.attrib['failures'] = str(0)
-    test_suite.attrib['name'] = 'cpplint failures'
-    test_suite.attrib['tests'] = str(len(failures))
+    test_suite.attrib['name'] = 'cpplint errors'
+    test_suite.attrib['tests'] = str(len(errors))
     test_suite.attrib['time'] = str(1)
 
-    for file_name, errors in failures.items():
+    for file_name, errors in errors.items():
         test_case = ElementTree.SubElement(test_suite,
                                            'testcase',
                                            name=os.path.relpath(file_name))
         for error in errors:
             ElementTree.SubElement(test_case,
-                                   'failure',
+                                   'error',
                                    file=os.path.relpath(error.file),
                                    line=str(error.line),
                                    message='{}: {}'.format(error.line, error.message))
@@ -97,13 +97,13 @@ def main():
     args = parse_arguments()
 
     try:
-        failures = parse_cpplint(args.input_file)
+        errors = parse_cpplint(args.input_file)
     except FileNotFoundError as e:
         print(str(e))
         return EXIT_FAILURE
 
-    if len(failures) > 0:
-        generate_test_suite(failures, args.output_file)
+    if len(errors) > 0:
+        generate_test_suite(errors, args.output_file)
 
     return EXIT_SUCCESS
 
