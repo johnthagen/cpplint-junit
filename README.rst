@@ -38,7 +38,7 @@ Releases
 0.2.3 - 2015-11-14
 ^^^^^^^^^^^^^^^^^^
 
-Use "error" consistantly rather than "failure" to refer to results from ``cpplint``.
+Use "error" consistently rather than "failure" to refer to results from ``cpplint``.
 
 0.2.2 - 2015-11-14
 ^^^^^^^^^^^^^^^^^^
