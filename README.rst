@@ -35,10 +35,15 @@ Convert it to JUnit XML format:
 Releases
 --------
 
-0.2.2 - 2015-11-14
+0.2.3 - 2015-11-14
 ^^^^^^^^^^^^^^^^^^
 
 Use "error" consistantly rather than "failure" to refer to results from ``cpplint``.
+
+0.2.2 - 2015-11-14
+^^^^^^^^^^^^^^^^^^
+
+Mis-release.
 
 0.2.1 - 2015-10-24
 ^^^^^^^^^^^^^^^^^^

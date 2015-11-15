@@ -9,7 +9,7 @@ import re
 import sys
 from xml.etree import ElementTree
 
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 
 EXIT_SUCCESS = 0
 EXIT_FAILURE = -1
