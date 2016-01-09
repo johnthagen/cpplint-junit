@@ -112,3 +112,6 @@ class ParseCpplintTestCase(unittest.TestCase):
         self.assertEqual(failures[file2][4].message,
                          'Could not find a newline character at the end of the file.  '
                          '[whitespace/ending_newline] [5]')
+
+if __name__ == '__main__':
+    unittest.main()
