@@ -41,19 +41,20 @@ def parse_cpplint(file_name):
     Raises:
         FileNotFoundError: File does not exist.
     """
-    lines = open(file_name, mode='rt').readlines()
+    with open(file_name, 'rt') as file:
+        lines = file.readlines()
 
-    errors = collections.defaultdict(list)
-    for line in lines:
-        line = line.rstrip()
+        errors = collections.defaultdict(list)
+        for line in lines:
+            line = line.rstrip()
 
-        match = re.search(r'(\S+):(\d+):\s+(.+)', line)
-        if match is not None:
-            error = CpplintError(file=match.group(1),
-                                 line=int(match.group(2)),
-                                 message=match.group(3))
-            errors[error.file].append(error)
-    return errors
+            match = re.search(r'(\S+):(\d+):\s+(.+)', line)
+            if match is not None:
+                error = CpplintError(file=match.group(1),
+                                     line=int(match.group(2)),
+                                     message=match.group(3))
+                errors[error.file].append(error)
+        return errors
 
 
 def generate_test_suite(errors, output_file):
