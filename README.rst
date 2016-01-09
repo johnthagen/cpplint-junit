@@ -4,6 +4,9 @@ cpplint JUnit Converter
 .. image:: https://badge.fury.io/py/cpplint-junit.png
     :target: http://badge.fury.io/py/cpplint-junit
 
+.. image:: https://travis-ci.org/johnthagen/cpplint-junit.svg
+    :target: https://travis-ci.org/johnthagen/cpplint-junit
+
 Tool that converts ``cpplint`` output to JUnit XML format.  Use on your CI servers to get more
 helpful feedback.
 
