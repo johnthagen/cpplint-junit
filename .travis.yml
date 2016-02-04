@@ -7,6 +7,6 @@ python:
 install:
   - pip install coveralls
 script:
-  coverage run python test.py
+  coverage run test.py
 after_success:
   coveralls
