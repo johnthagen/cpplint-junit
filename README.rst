@@ -4,8 +4,8 @@ cpplint JUnit Converter
 .. image:: https://travis-ci.org/johnthagen/cpplint-junit.svg
     :target: https://travis-ci.org/johnthagen/cpplint-junit
 
-.. image:: https://coveralls.io/repos/github/johnthagen/ccpplint-junit/badge.svg
-    :target: https://coveralls.io/github/johnthagen/cpplint-junit
+.. image:: https://codecov.io/github/johnthagen/cpplint-junit/coverage.svg
+    :target: https://codecov.io/github/johnthagen/cpplint-junit
 
 .. image:: https://img.shields.io/pypi/v/cpplint-junit.svg
     :target: https://pypi.python.org/pypi/cpplint-junit
