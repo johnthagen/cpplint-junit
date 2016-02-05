@@ -17,6 +17,13 @@ EXIT_FAILURE = -1
 
 class CpplintError(object):
     def __init__(self, file, line, message):
+        """Constructor.
+
+        Args:
+            file (str): File error originated on.
+            line (int): Line error originated on.
+            message (str): Error message.
+        """
         self.file = file
         self.line = line
         self.message = message
@@ -57,15 +64,14 @@ def parse_cpplint(file_name):
         return errors
 
 
-def generate_test_suite(errors, output_file):
+def generate_test_suite(errors):
     """Writes a JUnit test file from parsed cpplint failures.
 
     Args:
         errors (Dict[str, List[CpplintError]]): Parsed cpplint failures.
-        output_file (str): File path to JUnit XML output.
 
     Returns:
-        Nothing.
+        ElementTree.ElementTree: XML test suite.
     """
     test_suite = ElementTree.Element('testsuite')
     test_suite.attrib['errors'] = str(len(errors))
@@ -85,8 +91,7 @@ def generate_test_suite(errors, output_file):
                                    line=str(error.line),
                                    message='{}: {}'.format(error.line, error.message))
 
-    tree = ElementTree.ElementTree(test_suite)
-    tree.write(output_file, encoding='utf-8', xml_declaration=True)
+    return ElementTree.ElementTree(test_suite)
 
 
 def main():
@@ -104,7 +109,8 @@ def main():
         return EXIT_FAILURE
 
     if len(errors) > 0:
-        generate_test_suite(errors, args.output_file)
+        tree = generate_test_suite(errors)
+        tree.write(args.output_file, encoding='utf-8', xml_declaration=True)
 
     return EXIT_SUCCESS
 

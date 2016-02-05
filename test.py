@@ -2,9 +2,10 @@
 
 """cpplint-junit tests."""
 
+import sys
 import unittest
 
-from cpplint_junit import parse_cpplint
+from cpplint_junit import CpplintError, generate_test_suite, parse_arguments, parse_cpplint
 
 
 class ParseCpplintTestCase(unittest.TestCase):
@@ -112,6 +113,40 @@ class ParseCpplintTestCase(unittest.TestCase):
         self.assertEqual(failures[file2][4].message,
                          'Could not find a newline character at the end of the file.  '
                          '[whitespace/ending_newline] [5]')
+
+
+class GenerateTestSuiteTestCase(unittest.TestCase):
+    def test_single(self):
+        errors = {'file_name':
+                  [CpplintError('file_name',
+                                4,
+                                'error message')]}
+        tree = generate_test_suite(errors)
+        root = tree.getroot()
+        self.assertEqual(root.get('errors'), str(1))
+        self.assertEqual(root.get('failures'), str(0))
+        self.assertEqual(root.get('tests'), str(1))
+
+        test_case_element = root.find('testcase')
+        self.assertEqual(test_case_element.get('name'), 'file_name')
+
+        error_element = test_case_element.find('error')
+        self.assertEqual(error_element.get('file'), 'file_name')
+        self.assertEqual(error_element.get('line'), str(4))
+        self.assertEqual(error_element.get('message'), '4: error message')
+
+
+class ParseArgumentsTestCase(unittest.TestCase):
+    def test_no_arguments(self):
+        with self.assertRaises(SystemExit):
+            # Suppress argparse stderr.
+            class NullWriter:
+                def write(self, s):
+                    pass
+
+            sys.stderr = NullWriter()
+            parse_arguments()
+
 
 if __name__ == '__main__':
     unittest.main()
