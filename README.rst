@@ -13,7 +13,7 @@ cpplint JUnit Converter
 .. image:: https://img.shields.io/pypi/pyversions/cpplint-junit.svg
     :target: https://pypi.python.org/pypi/cpplint-junit/
 
-.. image:: https://img.shields.io/pypi/dd/cppcheck-junit.svg
+.. image:: https://img.shields.io/pypi/dd/cpplint-junit.svg
     :target: https://pypi.python.org/pypi/cpplint-junit/
 
 Tool that converts ``cpplint`` output to JUnit XML format.  Use on your CI servers to get more
