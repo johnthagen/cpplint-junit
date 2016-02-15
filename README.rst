@@ -22,6 +22,9 @@ cpplint JUnit Converter
 Tool that converts ``cpplint`` output to JUnit XML format.  Use on your CI servers to get more
 helpful feedback.
 
+Note: The `advanced PyPI hosted version of cpplint <https://pypi.python.org/pypi/cpplint>`_
+supports JUnit output format natively and is preferred to this package.
+
 Installation
 ------------
 
