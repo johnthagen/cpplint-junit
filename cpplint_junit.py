@@ -9,7 +9,7 @@ import re
 import sys
 from xml.etree import ElementTree
 
-__version__ = '0.2.3'
+__version__ = '1.0.0'
 
 EXIT_SUCCESS = 0
 EXIT_FAILURE = -1
@@ -43,7 +43,7 @@ def parse_cpplint(file_name):
         file_name (str): cpplint output file.
 
     Returns:
-        Dict[str, List[CpplintError]]: Parsed failures grouped by file name.
+        Dict[str, List[CpplintError]]: Parsed errors grouped by file name.
 
     Raises:
         FileNotFoundError: File does not exist.
@@ -65,10 +65,10 @@ def parse_cpplint(file_name):
 
 
 def generate_test_suite(errors):
-    """Writes a JUnit test file from parsed cpplint failures.
+    """Creates a JUnit XML tree from parsed cpplint errors.
 
     Args:
-        errors (Dict[str, List[CpplintError]]): Parsed cpplint failures.
+        errors (Dict[str, List[CpplintError]]): Parsed cpplint errors.
 
     Returns:
         ElementTree.ElementTree: XML test suite.
