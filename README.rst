@@ -10,7 +10,7 @@ cpplint JUnit Converter
 .. image:: https://img.shields.io/pypi/v/cpplint-junit.svg
     :target: https://pypi.python.org/pypi/cpplint-junit
 
-.. image:: https://img.shields.io/pypi/status/cpplint-junit
+.. image:: https://img.shields.io/pypi/status/cpplint-junit.svg
     :target: https://pypi.python.org/pypi/cpplint-junit
 
 .. image:: https://img.shields.io/pypi/pyversions/cpplint-junit.svg
