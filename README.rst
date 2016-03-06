@@ -53,6 +53,11 @@ Convert it to JUnit XML format:
 Releases
 --------
 
+1.0.1 - 2016-03-05
+^^^^^^^^^^^^^^^^^^
+
+Fix Python 2.7 compatibility be catching more general IOError on file not found.
+
 1.0.0 - 2016-02-15
 ^^^^^^^^^^^^^^^^^^
 
