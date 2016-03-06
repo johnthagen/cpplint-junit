@@ -46,7 +46,7 @@ def parse_cpplint(file_name):
         Dict[str, List[CpplintError]]: Parsed errors grouped by file name.
 
     Raises:
-        FileNotFoundError: File does not exist.
+        IOError: File does not exist (More specifically FileNotFoundError on Python 3).
     """
     with open(file_name, 'rt') as file:
         lines = file.readlines()
@@ -104,7 +104,7 @@ def main():  # pragma: no cover
 
     try:
         errors = parse_cpplint(args.input_file)
-    except FileNotFoundError as e:
+    except IOError as e:
         print(str(e))
         return EXIT_FAILURE
 
