@@ -4,6 +4,12 @@ cpplint JUnit Converter
 .. image:: https://travis-ci.org/johnthagen/cpplint-junit.svg
     :target: https://travis-ci.org/johnthagen/cpplint-junit
 
+.. image:: https://codeclimate.com/github/johnthagen/cpplint-junit/badges/gpa.svg
+   :target: https://codeclimate.com/github/johnthagen/cpplint-junit
+
+.. image:: https://codeclimate.com/github/johnthagen/cpplint-junit/badges/issue_count.svg
+   :target: https://codeclimate.com/github/johnthagen/cpplint-junit
+
 .. image:: https://codecov.io/github/johnthagen/cpplint-junit/coverage.svg
     :target: https://codecov.io/github/johnthagen/cpplint-junit
 
