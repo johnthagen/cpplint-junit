@@ -7,6 +7,7 @@ import collections
 import os
 import re
 import sys
+from typing import Dict, List  # noqa
 from xml.etree import ElementTree
 
 __version__ = '1.0.1'
@@ -16,13 +17,18 @@ EXIT_FAILURE = -1
 
 
 class CpplintError(object):
-    def __init__(self, file, line, message):
+    def __init__(self,
+                 file,  # type: str
+                 line,  # type: int
+                 message  # type: str
+                 ):
+        # type: () -> CpplintError
         """Constructor.
 
         Args:
-            file (str): File error originated on.
-            line (int): Line error originated on.
-            message (str): Error message.
+            file: File error originated on.
+            line: Line error originated on.
+            message: Error message.
         """
         self.file = file
         self.line = line
@@ -30,6 +36,7 @@ class CpplintError(object):
 
 
 def parse_arguments():
+    # type: () -> argparse.Namespace
     parser = argparse.ArgumentParser(description='Converts cpplint output to JUnit XML format.')
     parser.add_argument('input_file', type=str, help='cpplint stdout text file.')
     parser.add_argument('output_file', type=str, help='JUnit XML output file.')
@@ -37,13 +44,14 @@ def parse_arguments():
 
 
 def parse_cpplint(file_name):
+    # type: (str) -> Dict[str, List[CpplintError]]
     """Parses a cpplint output file.
 
     Args:
-        file_name (str): cpplint output file.
+        file_name: cpplint output file.
 
     Returns:
-        Dict[str, List[CpplintError]]: Parsed errors grouped by file name.
+        Parsed errors grouped by file name.
 
     Raises:
         IOError: File does not exist (More specifically FileNotFoundError on Python 3).
@@ -65,13 +73,14 @@ def parse_cpplint(file_name):
 
 
 def generate_test_suite(errors):
+    # type: Dict[str, List[CpplintError]] -> ElementTree.ElementTree
     """Creates a JUnit XML tree from parsed cpplint errors.
 
     Args:
-        errors (Dict[str, List[CpplintError]]): Parsed cpplint errors.
+        errors: Parsed cpplint errors.
 
     Returns:
-        ElementTree.ElementTree: XML test suite.
+        XML test suite.
     """
     test_suite = ElementTree.Element('testsuite')
     test_suite.attrib['errors'] = str(len(errors))
@@ -95,10 +104,11 @@ def generate_test_suite(errors):
 
 
 def main():  # pragma: no cover
+    # type: () -> int
     """Main function.
 
     Returns:
-        int: Exit code.
+        Exit code.
     """
     args = parse_arguments()
 

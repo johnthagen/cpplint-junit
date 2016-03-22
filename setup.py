@@ -17,6 +17,7 @@ setup(
     license='MIT',
 
     py_modules=['cpplint_junit'],
+    install_requires=open('requirements.txt').readlines(),
     zip_safe=False,
 
     classifiers=[
