@@ -9,11 +9,11 @@ from cpplint_junit import CpplintError, generate_test_suite, parse_arguments, pa
 
 
 class ParseCpplintTestCase(unittest.TestCase):
-    def test_good(self):
+    def test_good(self):  # type: () -> None
         failures = parse_cpplint('tests/cpplint-out-good.txt')
         self.assertEqual(failures, {})
 
-    def test_bad(self):
+    def test_bad(self):  # type: () -> None
         file = 'bad.cpp'
         failures = parse_cpplint('tests/cpplint-out-bad.txt')
 
@@ -34,7 +34,7 @@ class ParseCpplintTestCase(unittest.TestCase):
                          'Could not find a newline character at the end of the file.  '
                          '[whitespace/ending_newline] [5]')
 
-    def test_bad2(self):
+    def test_bad2(self):  # type: () -> None
         file = 'bad2.cpp'
         failures = parse_cpplint('tests/cpplint-out-bad2.txt')
 
@@ -65,7 +65,7 @@ class ParseCpplintTestCase(unittest.TestCase):
                          'Could not find a newline character at the end of the file.  '
                          '[whitespace/ending_newline] [5]')
 
-    def test_all(self):
+    def test_all(self):  # type: () -> None
         file1 = 'bad.cpp'
         file2 = 'bad2.cpp'
         failures = parse_cpplint('tests/cpplint-out-all.txt')
@@ -116,7 +116,7 @@ class ParseCpplintTestCase(unittest.TestCase):
 
 
 class GenerateTestSuiteTestCase(unittest.TestCase):
-    def test_single(self):
+    def test_single(self):  # type: () -> None
         errors = {'file_name':
                   [CpplintError('file_name',
                                 4,
@@ -137,11 +137,11 @@ class GenerateTestSuiteTestCase(unittest.TestCase):
 
 
 class ParseArgumentsTestCase(unittest.TestCase):
-    def test_no_arguments(self):
+    def test_no_arguments(self):  # type: () -> None
         with self.assertRaises(SystemExit):
             # Suppress argparse stderr.
             class NullWriter:
-                def write(self, s):
+                def write(self, s):  # type: (str) -> None
                     pass
 
             sys.stderr = NullWriter()
