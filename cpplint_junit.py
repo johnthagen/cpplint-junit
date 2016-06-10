@@ -10,10 +10,9 @@ import sys
 from typing import Dict, List  # noqa
 from xml.etree import ElementTree
 
-__version__ = '1.0.1'
+from exitstatus import ExitStatus
 
-EXIT_SUCCESS = 0
-EXIT_FAILURE = -1
+__version__ = '1.0.1'
 
 
 class CpplintError(object):
@@ -104,7 +103,7 @@ def generate_test_suite(errors):
 
 
 def main():  # pragma: no cover
-    # type: () -> int
+    # type: () -> ExitStatus
     """Main function.
 
     Returns:
@@ -116,13 +115,13 @@ def main():  # pragma: no cover
         errors = parse_cpplint(args.input_file)
     except IOError as e:
         print(str(e))
-        return EXIT_FAILURE
+        return ExitStatus.failure
 
     if len(errors) > 0:
         tree = generate_test_suite(errors)
         tree.write(args.output_file, encoding='utf-8', xml_declaration=True)
 
-    return EXIT_SUCCESS
+    return ExitStatus.success
 
 if __name__ == '__main__':  # pragma: no cover
     sys.exit(main())
