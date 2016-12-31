@@ -59,6 +59,11 @@ Convert it to JUnit XML format:
 Releases
 --------
 
+1.1.0 - 2016-12-31
+^^^^^^^^^^^^^^^^^^
+
+Support Python 3.6.
+
 1.0.1 - 2016-03-05
 ^^^^^^^^^^^^^^^^^^
 
