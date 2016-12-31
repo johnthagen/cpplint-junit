@@ -1,17 +1,24 @@
 language: python
+
 python:
+  - 3.6
   - 3.5
   - 3.4
   - 3.3
   - 2.7
+  - pypy
+
 install:
   - pip install -r requirements.txt
   - pip install codecov
   - pip install flake8 pep8-naming flake8-quotes flake8-import-order pylint
+
 before_script:
   - flake8 --max-line-length=99 --import-order-style=google --application-import-names=cpplint_junit
   - pylint -E cpplint_junit.py test.py
+
 script:
   python -Werror -Wignore::DeprecationWarning -m coverage run test.py
+
 after_success:
   codecov

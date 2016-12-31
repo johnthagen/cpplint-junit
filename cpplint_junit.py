@@ -12,7 +12,7 @@ from xml.etree import ElementTree
 
 from exitstatus import ExitStatus
 
-__version__ = '1.0.1'
+__version__ = '1.1.0'
 
 
 class CpplintError(object):
@@ -122,6 +122,7 @@ def main():  # pragma: no cover
         tree.write(args.output_file, encoding='utf-8', xml_declaration=True)
 
     return ExitStatus.success
+
 
 if __name__ == '__main__':  # pragma: no cover
     sys.exit(main())
