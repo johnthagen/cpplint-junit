@@ -2,10 +2,9 @@
 
 """cpplint-junit tests."""
 
-import sys
 import unittest
 
-from cpplint_junit import CpplintError, generate_test_suite, parse_arguments, parse_cpplint
+from cpplint_junit import CpplintError, generate_test_suite, parse_cpplint
 
 
 class ParseCpplintTestCase(unittest.TestCase):
