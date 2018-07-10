@@ -12,7 +12,7 @@ from xml.etree import ElementTree
 
 from exitstatus import ExitStatus
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 
 class CpplintError(object):
