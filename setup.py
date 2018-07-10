@@ -1,11 +1,9 @@
 from setuptools import setup
 
-import cpplint_junit
-
 
 setup(
     name='cpplint-junit',
-    version=cpplint_junit.__version__,
+    version='1.2.0',
 
     description='Converts cpplint output to JUnit format.',
     long_description=open('README.rst').read(),

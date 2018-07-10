@@ -12,8 +12,6 @@ from xml.etree import ElementTree
 
 from exitstatus import ExitStatus
 
-__version__ = '1.2.0'
-
 
 class CpplintError(object):
     def __init__(self,
