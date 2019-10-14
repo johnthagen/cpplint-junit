@@ -56,6 +56,11 @@ Convert it to JUnit XML format:
 Releases
 --------
 
+1.2.1 - 2019-10-14
+^^^^^^^^^^^^^^^^^^
+
+Fix missing ``requirements.txt`` from source distribution that caused package to not install.
+
 1.2.0 - 2018-07-09
 ^^^^^^^^^^^^^^^^^^
 
