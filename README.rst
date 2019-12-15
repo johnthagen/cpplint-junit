@@ -56,6 +56,12 @@ Convert it to JUnit XML format:
 Releases
 --------
 
+1.3.0 - 2019-12-15
+^^^^^^^^^^^^^^^^^^
+
+- Drop Python 3.4 and support Python 3.8.
+- Include license file.
+
 1.2.1 - 2019-10-14
 ^^^^^^^^^^^^^^^^^^
 

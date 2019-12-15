@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='cpplint-junit',
-    version='1.2.1',
+    version='1.3.0',
 
     description='Converts cpplint output to JUnit format.',
     long_description=open('README.rst').read(),
