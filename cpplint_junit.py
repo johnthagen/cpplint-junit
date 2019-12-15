@@ -70,7 +70,7 @@ def parse_cpplint(file_name):
 
 
 def generate_test_suite(errors):
-    # type: Dict[str, List[CpplintError]] -> ElementTree.ElementTree
+    # type: (Dict[str, List[CpplintError]]) -> ElementTree.ElementTree
     """Creates a JUnit XML tree from parsed cpplint errors.
 
     Args:
