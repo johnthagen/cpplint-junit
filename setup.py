@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='cpplint-junit',
-    version='1.3.0',
+    version='2.0.0',
 
     description='Converts cpplint output to JUnit format.',
     long_description=open('README.rst').read(),
@@ -15,9 +15,11 @@ setup(
 
     py_modules=['cpplint_junit'],
     install_requires=open('requirements.txt').readlines(),
+    python_requires='<=3.5',
     zip_safe=False,
 
     license='MIT',
+    license_files=['LICENSE.txt'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

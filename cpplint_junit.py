@@ -7,19 +7,14 @@ import collections
 import os
 import re
 import sys
-from typing import Dict, List  # noqa
+from typing import Dict, List
 from xml.etree import ElementTree
 
 from exitstatus import ExitStatus
 
 
 class CpplintError(object):
-    def __init__(self,
-                 file,  # type: str
-                 line,  # type: int
-                 message  # type: str
-                 ):
-        # type: () -> CpplintError
+    def __init__(self, file: str, line: int, message: str) -> None:
         """Constructor.
 
         Args:
@@ -32,16 +27,14 @@ class CpplintError(object):
         self.message = message
 
 
-def parse_arguments():
-    # type: () -> argparse.Namespace
+def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Converts cpplint output to JUnit XML format.')
     parser.add_argument('input_file', type=str, help='cpplint stdout text file.')
     parser.add_argument('output_file', type=str, help='JUnit XML output file.')
     return parser.parse_args()
 
 
-def parse_cpplint(file_name):
-    # type: (str) -> Dict[str, List[CpplintError]]
+def parse_cpplint(file_name: str) -> Dict[str, List[CpplintError]]:
     """Parses a cpplint output file.
 
     Args:
@@ -69,8 +62,7 @@ def parse_cpplint(file_name):
         return errors
 
 
-def generate_test_suite(errors):
-    # type: (Dict[str, List[CpplintError]]) -> ElementTree.ElementTree
+def generate_test_suite(errors: Dict[str, List[CpplintError]]) -> ElementTree.ElementTree:
     """Creates a JUnit XML tree from parsed cpplint errors.
 
     Args:
@@ -100,8 +92,7 @@ def generate_test_suite(errors):
     return ElementTree.ElementTree(test_suite)
 
 
-def main():  # pragma: no cover
-    # type: () -> ExitStatus
+def main() -> ExitStatus:  # pragma: no cover
     """Main function.
 
     Returns:
