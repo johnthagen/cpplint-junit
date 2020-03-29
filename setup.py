@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='cpplint-junit',
-    version='2.0.0',
+    version='2.0.1',
 
     description='Converts cpplint output to JUnit format.',
     long_description=open('README.rst').read(),
@@ -28,9 +28,8 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: C++',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',

@@ -56,10 +56,15 @@ Convert it to JUnit XML format:
 Releases
 --------
 
+2.0.1 - 2020-03-29
+^^^^^^^^^^^^^^^^^^
+
+- Fix trove classifiers.
+
 2.0.0 - 2020-03-29
 ^^^^^^^^^^^^^^^^^^
 
-- Drop Python 2.7
+- Drop Python 2.7.
 
 1.3.0 - 2019-12-15
 ^^^^^^^^^^^^^^^^^^
