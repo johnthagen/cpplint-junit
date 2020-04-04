@@ -1,8 +1,8 @@
 cpplint JUnit Converter
 =======================
 
-.. image:: https://travis-ci.org/johnthagen/cpplint-junit.svg
-    :target: https://travis-ci.org/johnthagen/cpplint-junit
+.. image:: https://travis-ci.com/johnthagen/cpplint-junit.svg
+    :target: https://travis-ci.com/johnthagen/cpplint-junit
 
 .. image:: https://codeclimate.com/github/johnthagen/cpplint-junit/badges/gpa.svg
    :target: https://codeclimate.com/github/johnthagen/cpplint-junit
