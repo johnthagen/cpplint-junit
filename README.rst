@@ -1,6 +1,10 @@
 cpplint JUnit Converter
 =======================
 
+**Note**: This project has been archived in favor of the
+`advanced PyPI hosted version of cpplint <https://pypi.python.org/pypi/cpplint>`_. It will
+no longer be maintained.
+
 .. image:: https://travis-ci.com/johnthagen/cpplint-junit.svg
     :target: https://travis-ci.com/johnthagen/cpplint-junit
 
